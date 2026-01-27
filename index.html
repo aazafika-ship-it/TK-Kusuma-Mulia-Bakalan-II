@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TK Kusuma Mulia Bakalan 2</title>
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <img src="img/logo.png" alt="Logo Sekolah" class="loading-logo">
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="img/logo.png" alt="Logo TK Kusuma Mulia Bakalan 2" class="logo">
+                <h1>TK Kusuma Mulia Bakalan 2</h1>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li class="has-submenu">
+                        <a href="#profil" onclick="toggleSubmenu('profil')">Profil</a>
+                        <ul class="submenu" id="profil-submenu">
+                            <li><a href="visi.html">Visi</a></li>
+                            <li><a href="misi.html">Misi</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#vokasi" onclick="toggleSubmenu('vokasi')">Vokasi</a>
+                        <ul class="submenu" id="vokasi-submenu">
+                            <li><a href="bermain.html">Bermain</a></li>
+                            <li><a href="belajar.html">Belajar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="ekskul.html">Ekskul</a></li>
+                    <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+                    <li><a href="sarpras.html">Sarpras</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <img src="img/banner.jpg" alt="Banner Sekolah TK Kusuma Mulia Bakalan 2">
+    </section>
+
+    <!-- Sambutan Kepala Sekolah -->
+    <section class="sambutan">
+        <div class="sambutan-container">
+            <img src="img/KS.png" alt="Foto Kepala Sekolah" class="foto-ks">
+            <div class="sambutan-text">
+                <h2>Sambutan Kepala Sekolah</h2>
+                <p>Assalamualaikum Warahmatullahi Wabarakatuh. Selamat datang di website resmi TK Kusuma Mulia Bakalan 2. Sebagai lembaga pendidikan anak usia dini, kami berkomitmen untuk memberikan pengalaman belajar yang menyenangkan, inovatif, dan berkualitas tinggi. Melalui program kami, anak-anak diajak untuk berkembang secara holistik dalam suasana yang penuh cinta dan kreativitas. Mari bersama-sama membangun generasi penerus bangsa yang cerdas, berakhlak mulia, dan siap menghadapi masa depan. Wassalamualaikum Warahmatullahi Wabarakatuh.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita Terbaru -->
+    <section class="berita">
+        <h2>Berita Terbaru</h2>
+        <div class="berita-container">
+            <div class="berita-item">
+                <img src="img/berita1.jpg" alt="Berita 1">
+                <h3>Judul Berita 1</h3>
+                <p>Ringkasan berita 1 dari admin panel...</p>
+                <a href="berita.html" class="btn-selengkapnya">Selengkapnya</a>
+            </div>
+            <div class="berita-item">
+                <img src="img/berita2.jpg" alt="Berita 2">
+                <h3>Judul Berita 2</h3>
+                <p>Ringkasan berita 2 dari admin panel...</p>
+                <a href="berita.html" class="btn-selengkapnya">Selengkapnya</a>
+            </div>
+            <div class="berita-item">
+                <img src="img/berita3.jpg" alt="Berita 3">
+                <h3>Judul Berita 3</h3>
+                <p>Ringkasan berita 3 dari admin panel...</p>
+                <a href="berita.html" class="btn-selengkapnya">Selengkapnya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Running Text -->
+    <section class="running-text">
+        <div class="marquee">
+            <p>Selamat datang di TK Kusuma Mulia Bakalan 2 - Tempat Belajar yang Menyenangkan! | Pendaftaran Murid Baru Dibuka | Acara Kegiatan Ekstrakurikuler Minggu Depan</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 TK Kusuma Mulia Bakalan 2. Website dibuat oleh A.zaiii</p>
+    </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').style.display = 'none';
+                document.body.style.overflow = 'auto'; // Enable scroll after loading
+            }, 1200); // 1.2 seconds
+        });
+
+        // Submenu Toggle
+        function toggleSubmenu(menuId) {
+            const submenus = document.querySelectorAll('.submenu');
+            submenus.forEach(sub => {
+                if (sub.id !== menuId + '-submenu') {
+                    sub.style.maxHeight = '0';
+                }
+            });
+            const currentSub = document.getElementById(menuId + '-submenu');
+            if (currentSub.style.maxHeight === '0px' || !currentSub.style.maxHeight) {
+                currentSub.style.maxHeight = currentSub.scrollHeight + 'px';
+            } else {
+                currentSub.style.maxHeight = '0';
+            }
+        }
+
+        // Close submenu on outside click (optional for better UX)
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.has-submenu')) {
+                document.querySelectorAll('.submenu').forEach(sub => sub.style.maxHeight = '0');
+            }
+        });
+    </script>
+</body>
+</html>
